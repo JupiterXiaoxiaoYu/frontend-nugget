@@ -59,7 +59,7 @@ const AdjustableImageTextButton = ({
     window.addEventListener("resize", handle);
     return () => window.removeEventListener("resize", handle);
     // depend on `id` if different sizes per id
-  }, [id]);
+  }, [id, containerRef.current?.offsetHeight]);
 
   const getElement = (
     leftImage: string,
@@ -96,7 +96,7 @@ const AdjustableImageTextButton = ({
         hoverElement={getElement(
           leftHoverImage,
           midHoverImage,
-          rightHoverImage,    
+          rightHoverImage,
           isMobile,
           true
         )}
